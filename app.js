@@ -54,16 +54,12 @@ if (Array.isArray(appModules)) {
     for (let mod of appModules) {
         let modPath = `./modules/${mod}/${mod}.router.js`;
 
-        console.log('modPath',modPath)
-
         if (!fs.existsSync(modPath)) {
             throw new Error(`Dependency module '${modPath}' not found`);
         }
 
         let parts = require(modPath);
         let basepath = parts.path || mod;
-
-        console.log('basepath',basepath)
 
         app.use(`/${basepath}`, parts.routes());
     }

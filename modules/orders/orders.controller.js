@@ -10,7 +10,6 @@ const createOrder = async (req,res) => {
     let productName = body.productName;
     try {
     const productDetails = await Product.find({name:productName});
-    console.log(productDetails)
     if(productDetails){
     	orders.productId = productDetails._id;
       orders.customerId = req.params.id;
@@ -55,7 +54,6 @@ const updatePurchasesInfo = async (req,res,orderId,productId) => {
 const getAllOrders = async (req, res) => {
    let query= {};  
    let startDate,endDate;
-   console.log('hello000')
    if(req.query.start_date && req.query.end_date){
       startDate = new Date(req.query.start_date);
       endDate = new Date(req.query.end_date)
