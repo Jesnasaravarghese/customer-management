@@ -15,6 +15,11 @@ const { appModules } = require('./app.config');
 
 const env = process.env.NODE_ENV || 'development';
 
+/* GET home page. */
+app.get('/', function(req, res, next) {
+  res.render('index', { title: 'Customer-Management' });
+});
+
 
 // mongoose.Promise = global.Promise;
 

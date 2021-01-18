@@ -1,16 +1,20 @@
 #Dockerfile for Customer Management
 FROM node:12.13.0
 
-WORKDIR /app
+RUN mkdir -p /usr/src/app
 
-COPY package.json /app
+WORKDIR /usr/src/app
+
+COPY package.json /usr/src/app
 
 RUN npm install
 
-COPY . /app
+COPY . /usr/src/app
 
-CMD node index.js
+CMD node app.js
 
 EXPOSE 8081
 
-Build Docker 
+
+
+ 
